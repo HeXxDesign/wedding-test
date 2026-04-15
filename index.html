@@ -13,19 +13,23 @@
 <body class="bg-stone-50 text-stone-800">
 
     <main class="min-h-screen flex flex-col items-center justify-center p-6 text-center">
-        <div class="max-w-2xl w-full border-2 border-stone-200 p-8 md:p-16 bg-white shadow-sm relative">
-            <div class="w-full md:w-2/5 h-72 md:h-auto flex-shrink-0">
+        
+        
+            <div class="mb-10 mx-auto max-w-sm overflow-hidden rounded-full shadow-lg border-4 border-white">
                 <img 
-                    src='imagenes/boda.png' 
-                    alt="Boda" 
-                    class="w-full h-full object-cover"
-                >
+                    src="imagenes/boda.png"
+                    alt="Foto de Claudia y Eduardo"
+                    class="w-full h-80 object-cover aspect-square"
+                />
             </div>
             <div class="text-stone-400 text-3xl mb-4 italic">~</div>
 
             <p class="uppercase tracking-widest text-sm mb-6 text-stone-500">¡Nos casamos!</p>
             
-            <h1 class="text-5xl md:text-7xl mb-4 font-bold">Claudia & Eduardo</h1>
+            <h1 class="text-5xl md:text-7xl mb-4 font-medium italic opacity-0 animate-fade-in-up">
+                Claudia & Eduardo
+            </h1>
+            <!-- <h1 class="text-5xl md:text-7xl mb-4 font-bold">Claudia & Eduardo</h1> -->
             
             <div class="w-16 h-px bg-stone-300 mx-auto my-8"></div>
             
@@ -38,13 +42,13 @@
             </div>
 
             <button class="mt-8 px-8 py-3 bg-stone-800 text-stone-100 hover:bg-stone-700 transition-colors duration-300 tracking-widest uppercase text-xs">
-                Confirmar Asistencia
+               
+                <a href="https://wa.me/59175886352?text=¡Felicidades+por+la+Boda!+Confirmo+mi+asistencia+a+la+misma.+Somos+__+personas." 
+                    target="_blank">
+                 Confirmar Asistencia
+                </a>
             </button>
-
-            <div class="text-stone-400 text-3xl mt-10 italic">~</div>
-        </div>
-    </main>
-
+            
     <div class="mt-12 text-center">
     <button onclick="toggleGaleria()" class="group flex flex-col items-center mx-auto space-y-2 focus:outline-none">
         <span class="text-stone-500 uppercase tracking-[0.3em] text-[10px] font-bold">Nuestra Historia en Fotos</span>
@@ -58,19 +62,19 @@
     <div class="grid grid-cols-2 md:grid-cols-3 gap-2 mt-8 px-2">
         
         <div class="aspect-square overflow-hidden rounded-sm bg-stone-200 shadow-sm">
-            <img src="imagenes/foto1.jpg" alt="Boda 1" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+            <img src="img_boda/1.png" alt="Boda 1" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
         </div>
         
         <div class="aspect-square overflow-hidden rounded-sm bg-stone-200 shadow-sm">
-            <img src="imagenes/foto2.jpg" alt="Boda 2" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+            <img src="img_boda/2.png" alt="Boda 2" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
         </div>
 
         <div class="aspect-square overflow-hidden rounded-sm bg-stone-200 shadow-sm">
-            <img src="imagenes/foto3.jpg" alt="Boda 3" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+            <img src="img_boda/3.png" alt="Boda 3" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
         </div>
 
         <div class="aspect-square overflow-hidden rounded-sm bg-stone-200 shadow-sm">
-            <img src="imagenes/foto4.jpg" alt="Boda 4" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+            <img src="img_boda/4.png" alt="Boda 4" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
         </div>
 
     </div>
@@ -78,5 +82,43 @@
     <p class="mt-6 text-stone-400 italic text-sm">Cada momento a tu lado es mi favorito</p>
 </div>
 
+            <div class="text-stone-400 text-3xl mt-10 italic">~</div>
+        </div>
+    </main>
+
+    <script>
+function toggleGaleria() {
+    const content = document.getElementById('galeria-fotos');
+    const icon = document.getElementById('arrow-icon');
+
+    if (content.classList.contains('max-h-0')) {
+        // Abrir
+        content.classList.remove('max-h-0', 'opacity-0');
+        content.classList.add('max-h-[2000px]', 'opacity-100', 'mt-8'); // Ajusta 2000px según el largo de tu galería
+        icon.classList.add('rotate-180');
+    } else {
+        // Cerrar
+        content.classList.remove('max-h-[2000px]', 'opacity-100', 'mt-8');
+        content.classList.add('max-h-0', 'opacity-0');
+        icon.classList.remove('rotate-180');
+    }
+}
+</script>
+
+<style>
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fade-in-up {
+        animation: fadeInUp 1.5s ease-out forwards;
+    }
+</style>
 </body>
 </html>
