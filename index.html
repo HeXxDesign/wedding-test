@@ -10,180 +10,346 @@
         h1, h2 { font-family: 'Playfair Display', serif; }
     </style>
 </head>
-<body class="bg-stone-50 text-stone-800">
-    
-     <audio id="musicaBoda" loop>
-        <source src="imagenes/quien soy yo.mp3" type="audio/mpeg">
-            Tu navegador no soporta el elemento de audio.
-    </audio>
+    <body class="bg-stone-50 text-stone-800">
+        
 
-    <button id="btnMusica" onclick="toggleMusica()" class="fixed bottom-6 right-6 z-50 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg border border-stone-200 hover:scale-110 transition-all duration-300 group">
-        <svg id="icon-play" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-stone-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        <svg id="icon-pause" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-stone-700 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
+        <audio id="musicaBoda" loop>
+            <source src="music/quien soy yo.mp3" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+        </audio>
+
+        <button id="btnMusica" onclick="toggleMusica()" class="fixed bottom-6 right-6 z-50 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg border border-stone-200 hover:scale-110 transition-all duration-300 group">
+            <svg id="icon-play" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-stone-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <svg id="icon-pause" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-stone-700 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        
+            <span class="absolute right-14 top-2 bg-stone-800 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-widest pointer-events-none">
+                Nuestra Canción Favorita
+            </span>
+        </button>
+<!-- SOBRE PUERTAS  -->
+        <div id="portada-cubierta" class="fixed inset-0 z-50 flex overflow-hidden cursor-pointer" onclick="abrirPuertas()">
     
-        <span class="absolute right-14 top-2 bg-stone-800 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-widest pointer-events-none">
-            Nuestra Canción Favorita
-        </span>
-    </button>
-    <main class="min-h-screen flex flex-col items-center justify-center p-6 text-center">
-        
-        
-            <div class="mb-10 mx-auto max-w-sm overflow-hidden rounded-full shadow-lg border-4 border-white">
+            <div id="puerta-izquierda" class="w-1/2 h-full bg-[#00A382] transition-transform duration-1000 ease-in-out">
+                <img class="w-auto h-full" src="img_boda/gate_left.jpg" alt="">
+            </div>
+
+            <div id="puerta-derecha" class="relative w-1/2 h-full bg-[#FFE670] transition-transform duration-1000 ease-in-out">
+                <img class="w-auto h-full" src="img_boda/gate_right.jpg" alt="">
+                
+            </div>
+
+            <div id="boton-apertura" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-24 h-24 bg-red-600 rounded-full border-2 border-white shadow-xl transition-all duration-700">
+                <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white font-bold text-xs uppercase tracking-widest">Abrir</span>
+            </div>
+        </div>
+<!-- SOBRE PUERTAS -->
+       <main class="min-h-screen flex flex-col items-center justify-center p-6 text-center">
+            <div class="mb-10 mx-auto w-screen h-auto  max-w-sm overflow-hidden rounded-full shadow-lg border-4 border-white">
                 <img 
-                    src="imagenes/boda.png"
+                    src="img_boda/bodeishon.png"
                     alt="Foto de Claudia y Eduardo"
-                    class="w-full h-80 object-cover aspect-square"
-                />
+                    class="w-auto h-auto object-cover aspect-square  animate-spin [animation-duration:1000s]" 
+                >
             </div>
             <div class="text-stone-400 text-3xl mb-4 italic">~</div>
 
             <p class="uppercase tracking-widest text-sm mb-6 text-stone-500">¡Nos casamos!</p>
             
-            <h1 class="text-5xl md:text-7xl mb-4 font-medium italic opacity-0 animate-fade-in-up">
+            <!-- <h1 class=" text-5xl md:text-7xl mb-4 font-medium italic opacity-0  ">
                 Claudia & Eduardo
-            </h1>
-            <!-- <h1 class="text-5xl md:text-7xl mb-4 font-bold">Claudia & Eduardo</h1> -->
+            </h1> -->
+            <h1 class="text-5xl md:text-7xl mb-4 font-medium italic text-[#AC8E84] animate-bounce [animation-duration:3s]">Claudia & Eduardo</h1>
             
             <div class="w-16 h-px bg-stone-300 mx-auto my-8"></div>
+            <section class="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+    
+                <div class="absolute inset-0 z-0 bg-fixed bg-center bg-cover" 
+                    style="background-image: url('img_boda/fondo.png.png');">
+                </div>
+
+                <div class="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
+
+                <div class="relative z-20 w-[90%] max-w-4xl p-12 bg-white/90 backdrop-blur-md rounded-[2.5rem] shadow-2xl 
+                            border border-white/50 transform transition-all duration-500 hover:scale-[1.01]">
+                    
+                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#AC8E84]/30 rounded-full blur-3xl animate-pulse"></div>
+                    <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-[#AC8E84]/20 rounded-full blur-3xl animate-pulse"></div>
+
+                    <div class="relative flex flex-col items-center text-center">
+                        
+                        <p class="text-stone-600 font-serif italic max-w-3xl  text-2xl">
+                            "Hay momentos que merecen ser compartidos con las personas que más queremos,
+                            <br>y con la bendición de Dios anunciamos nuestra unión."
+                        </p>
+                    </div>
+                </div>
+            </section>
             
-            <p class="text-xl mb-2 italic">Acompáñanos en este día tan especial</p>
-            
-            <div class="space-y-4 my-10">
-                <p class="text-2xl font-semibold uppercase tracking-wider">Sábado, 30 de Mayo</p>
-                <p class="text-lg">11:00 Horas</p>
+            <section class="min-h-screen w-full flex items-center justify-center p-4">
+                <div class="w-[95%] max-w-4xl mx-auto h-auto p-8 md:p-12 bg-white rounded-3xl shadow-2xl text-center">
+                    <div class="mb-4 inline-block p-3 bg-white rounded-full text-stone-600">
+                        <img class="w-20 max-w-sm h-auto" src="img_boda/gifs/wired-outline-45-clock-time-hover-pinch.gif" alt="">
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-serif italic text-[#E1CEBF] mb-8">Faltan tan solo...</h2>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="countdown">
+                        <div class="flex flex-col p-4 bg-stone-50 rounded-2xl border border-stone-100">
+                            <span id="days" class="text-3xl md:text-5xl font-bold text-[#AC8E84]">00</span>
+                            <span class="text-[10px] uppercase tracking-widest text-stone-400 mt-2">Días</span>
+                        </div>
+                        <div class="flex flex-col p-4 bg-stone-50 rounded-2xl border border-stone-100">
+                            <span id="hours" class="text-3xl md:text-5xl font-bold text-[#AC8E84]">00</span>
+                            <span class="text-[10px] uppercase tracking-widest text-stone-400 mt-2">Horas</span>
+                        </div>
+                        <div class="flex flex-col p-4 bg-stone-50 rounded-2xl border border-stone-100">
+                            <span id="minutes" class="text-3xl md:text-5xl font-bold text-[#AC8E84]">00</span>
+                            <span class="text-[10px] uppercase tracking-widest text-stone-400 mt-2">Minutos</span>
+                        </div>
+                        <div class="flex flex-col p-4 bg-stone-50 rounded-2xl border border-stone-100">
+                            <span id="seconds" class="text-3xl md:text-5xl font-bold text-[#AC8E84]">00</span>
+                            <span class="text-[10px] uppercase tracking-widest text-stone-400 mt-2">Segundos</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+          
+            <div class="w-[95%]  max-w-4xl mx-auto h-auto p-8 md:p-12 my-10
+            transition-all duration-300 active:opacity-90
+            bg-white rounded-3xl shadow-2xl overflow-hidden 
+            cursor-pointer hover:shadow-inner active:scale-[0.98]
+            flex flex-col items-center justify-center text-center">
+            <div class="mb-4 inline-block p-3 bg-white rounded-full text-stone-600">
+                <img class="w-20 max-w-sm h-auto" src="img_boda/gifs/wired-outline-2947-calendar-christmas-eve-in-reveal.gif" alt="">
             </div>
-           <button class="mt-8 px-8 py-3 bg-stone-800 text-stone-100 hover:bg-stone-700 transition-colors duration-300 tracking-widest uppercase text-xs">
-               
-                <a href="https://wa.me/59175886352?text=¡Felicidades+por+la+Boda!+Confirmo+mi+asistencia+a+la+misma.+Somos+__+personas." 
-                    target="_blank">
-                 Confirmar Asistencia
-                </a>
-            </button>
+                <p class="text-2xl md:text-4xl mb-6 italic text-[#E1CEBF]">Acompáñanos en este día tan especial</p>
+                <p class="text-3xl md:text-5xl font-medium uppercase tracking-[0.2em] text-[#AC8E84] mb-4">Sábado</p>
+                <p class="text-2xl md:text-5xl font-medium uppercase tracking-[0.2em] text-[#AC8E84] mb-4">30 de Mayo</p>
+                
+                
+                
+            </div>
 
-        
-            <!-- DIRECCION GOOGLE MAPS -->
-    <div class="  bg-white/50 backdrop-blur-sm rounded-2xl border border-stone-100 text-center shadow-sm">
-        <div class="mb-4 inline-block p-3 bg-stone-100 rounded-full text-stone-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-        </div>
-    
-        <h3 class="text-xl font-serif italic text-stone-800 mb-2">Lugar de la Celebración</h3>
-        <p class="text-stone-600 text-sm mb-6 uppercase tracking-widest font-light">
-            <br>
-            Parroquia San Miguel Arcángel
-            <br> La Paz - Bolivia
-        </p>
-
-        <a href="https://maps.app.goo.gl/hDbYFsPqqyvN8TC67" 
-        target="_blank" 
-        class="inline-flex items-center px-8 py-3 bg-red-400 text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-red-700 transition-all shadow-md active:scale-95">
-            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
-            Ver en Google Maps
-        </a>
-    </div>
-            <!-- DIRECCION GOOGLE MAPS -->
-        
             
-    <div class="mt-12 text-center">
-    <button onclick="toggleGaleria()" class="group flex flex-col items-center mx-auto space-y-2 focus:outline-none">
-        <span class="text-stone-500 uppercase tracking-[0.3em] text-[10px] font-bold">Nuestra Historia en Fotos</span>
-        <svg id="arrow-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-stone-400 transform transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-        </svg>
-    </button>
-</div>
-
-<div id="galeria-fotos" class="max-h-0 overflow-hidden transition-all duration-700 ease-in-out opacity-0">
-    
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-2 mt-8 px-2">
-        <div class="aspect-square overflow-hidden rounded-sm bg-stone-200 shadow-sm">
-            <img src="imagenes/1.png" alt="Boda 1" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
-        </div>
+            
         
-        <div class="aspect-square overflow-hidden rounded-sm bg-stone-200 shadow-sm">
-            <img src="imagenes/2.png" alt="Boda 2" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+                    <!-- DIRECCION GOOGLE MAPS -->
+            <div class="w-[95%] max-w-4xl mx-auto h-auto p-8 md:p-12 my-10
+            transition-all duration-300 active:opacity-90
+            bg-white rounded-3xl shadow-2xl overflow-hidden 
+            cursor-pointer hover:shadow-inner active:scale-[0.98]
+            flex flex-col items-center justify-center text-center">
+                <div class="  bg-white/50 backdrop-blur-sm rounded-2xl border border-stone-100 text-center shadow-sm">
+                    <div class="mb-4 inline-block p-3 bg-white rounded-full text-stone-600">
+                        <img class="w-20 max-w-sm h-auto" src="img_boda/gifs/wired-outline-482-church-hover-pinch.gif" alt="">
+                    </div>
+                
+                    <h3 class="text-2xl font-serif italic md:text-4xl mb-6 text-[#E1CEBF]">Lugar de la Ceremonia</h3>
+                    <p class="text-2xl text-stone-600  mb-6 uppercase tracking-widest font-light">
+                        Parroquia San Miguel Arcángel
+                        <br> Zona Sur - La Paz
+                        <br> 11:00 am
+                    </p>
+                    
+
+                    <a href="https://maps.app.goo.gl/hDbYFsPqqyvN8TC67" 
+                    target="_blank" 
+                    class="inline-flex items-center px-8 py-3 bg-[#AC8E84] text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-stone-300 transition-all shadow-md active:scale-95">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        ¿Cómo llegar?
+                    </a>
+                </div>
+            </div>
+            <div class="w-[95%] max-w-4xl mx-auto h-auto p-8 md:p-12 my-10
+            transition-all duration-300 active:opacity-90
+            bg-white rounded-3xl shadow-2xl overflow-hidden 
+            cursor-pointer hover:shadow-inner active:scale-[0.98]
+            flex flex-col items-center justify-center text-center">
+                <div class="  bg-white/50 backdrop-blur-sm rounded-2xl border border-stone-100 text-center shadow-sm">
+                    <div class="mb-4 inline-block p-3 bg-white rounded-full text-stone-600">
+                        <img class="w-20 max-w-sm h-auto" src="img_boda/gifs/wired-lineal-18-location-pin-hover-jump.gif" alt="">
+                    </div>
+                
+                    <h3 class="text-2xl font-serif italic md:text-4xl mb-6 text-[#E1CEBF]">Lugar de la Recepción</h3>
+                    <p class="text-2xl text-stone-600  mb-6 uppercase tracking-widest font-light">
+                        Circulo de Oficiales del Ejercito
+                        <br> Zona Sur - La Paz
+                        <br> 15:00 hrs
+                    </p>
+
+                    <a href="https://maps.app.goo.gl/hDbYFsPqqyvN8TC67" 
+                    target="_blank" 
+                    class="inline-flex items-center px-8 py-3 bg-red-400 text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-red-700 transition-all shadow-md active:scale-95">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        ¿Cómo llegar?
+                    </a>
+                </div>
+            </div>
+
+                    <!-- DIRECCION GOOGLE MAPS -->
+
+                    
+            <div class="mt-12 text-center">
+            <button onclick="toggleGaleria()" class="group flex flex-col items-center mx-auto space-y-2 focus:outline-none">
+                <span class="text-stone-500 uppercase tracking-[0.3em] text-[10px] font-bold">Nuestra Historia en Fotos</span>
+                <svg id="arrow-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-stone-400 transform transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
         </div>
 
-        <div class="aspect-square overflow-hidden rounded-sm bg-stone-200 shadow-sm">
-            <img src="imagenes/3.png" alt="Boda 3" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
-        </div>
+                <div id="galeria-fotos" class="max-h-0 overflow-hidden transition-all duration-700 ease-in-out opacity-0">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2 mt-8 px-2">
+                        
+                        <div class="aspect-square overflow-hidden rounded-sm bg-stone-200 shadow-sm">
+                            <img src="img_boda/1.png" alt="Boda 1" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+                        </div>
+                        
+                        <div class="aspect-square overflow-hidden rounded-sm bg-stone-200 shadow-sm">
+                            <img src="img_boda/2.png" alt="Boda 2" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+                        </div>
 
-        <div class="aspect-square overflow-hidden rounded-sm bg-stone-200 shadow-sm">
-            <img src="imagenes/4.png" alt="Boda 4" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
-        </div>
-    </div>
+                        <div class="aspect-square overflow-hidden rounded-sm bg-stone-200 shadow-sm">
+                            <img src="img_boda/3.png" alt="Boda 3" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+                        </div>
+
+                        <div class="aspect-square overflow-hidden rounded-sm bg-stone-200 shadow-sm">
+                            <img src="img_boda/4.png" alt="Boda 4" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+                        </div>
+                        
+                    </div>
+                    
+                    <p class="mt-6 text-stone-400 italic text-sm">Cada momento a tu lado es mi favorito</p>
+                        
+                </div>
+                    <div class="text-stone-400 text-3xl mt-10 italic">~</div>
+                </div>
+        </main>
+
+
     
-    <p class="mt-6 text-stone-400 italic text-sm">Cada momento a tu lado es mi favorito</p>
-</div>
+        
+        <button class="w-full h-auto my-10  md:p-12 bg-[#AC8E84] text-white hover:bg-stone-700 transition-colors duration-300 tracking-widest uppercase text-xl">
+                    
+                    <a href="https://wa.me/59175886352?text=¡Felicidades+por+la+Boda!+Confirmo+mi+asistencia+a+la+misma.+Somos+__+personas." 
+                        target="_blank">
+                        Confirmar Asistencia
+                    </a>
+        </button>
+        
+    
+    
 
-            <div class="text-stone-400 text-3xl mt-10 italic">~</div>
-        </div>
-    </main>
+        <script>
+        function toggleGaleria() {
+            const content = document.getElementById('galeria-fotos');
+            const icon = document.getElementById('arrow-icon');
 
-    <script>
-function toggleGaleria() {
-    const content = document.getElementById('galeria-fotos');
-    const icon = document.getElementById('arrow-icon');
+            if (content.classList.contains('max-h-0')) {
+                // Abrir
+                content.classList.remove('max-h-0', 'opacity-0');
+                content.classList.add('max-h-[2000px]', 'opacity-100', 'mt-8'); // Ajusta 2000px según el largo de tu galería
+                icon.classList.add('rotate-180');
+            } else {
+                // Cerrar
+                content.classList.remove('max-h-[2000px]', 'opacity-100', 'mt-8');
+                content.classList.add('max-h-0', 'opacity-0');
+                icon.classList.remove('rotate-180');
+            }
+        }
+        </script>
 
-    if (content.classList.contains('max-h-0')) {
-        // Abrir
-        content.classList.remove('max-h-0', 'opacity-0');
-        content.classList.add('max-h-[2000px]', 'opacity-100', 'mt-8'); // Ajusta 2000px según el largo de tu galería
-        icon.classList.add('rotate-180');
-    } else {
-        // Cerrar
-        content.classList.remove('max-h-[2000px]', 'opacity-100', 'mt-8');
-        content.classList.add('max-h-0', 'opacity-0');
-        icon.classList.remove('rotate-180');
-    }
+        <script>
+            const musica = document.getElementById('musicaBoda');
+            const iconPlay = document.getElementById('icon-play');
+            const iconPause = document.getElementById('icon-pause');
+
+            function toggleMusica() {
+                if (musica.paused) {
+                    musica.play();
+                    iconPlay.classList.add('hidden');
+                    iconPause.classList.remove('hidden');
+                } else {
+                    musica.pause();
+                    iconPlay.classList.remove('hidden');
+                    iconPause.classList.add('hidden');
+                }
+            }
+        </script>
+
+        <script>
+            function abrirPuertas() {
+                const puertaIzq = document.getElementById('puerta-izquierda');
+                const puertaDer = document.getElementById('puerta-derecha');
+                const boton = document.getElementById('boton-apertura');
+                const main = document.getElementById('invitacion-main');
+                const cubierta = document.getElementById('portada-cubierta');
+
+                // 1. Mover las puertas hacia los lados
+                puertaIzq.style.transform = "translateX(-100%)";
+                puertaDer.style.transform = "translateX(100%)";
+
+                // 2. Desaparecer el botón
+                boton.style.opacity = "0";
+                boton.style.transform = "translate(-50%, -50%) scale(0)";
+
+                // 3. Mostrar la invitación principal
+                setTimeout(() => {
+                    main.classList.remove('hidden'); // Mostrar el main
+                    main.style.opacity = "1"; // Fade in
+                    cubierta.classList.add('pointer-events-none'); // Permite hacer click en el main
+                    
+                    // Opcional: Eliminar la cubierta del DOM para liberar recursos
+                    setTimeout(() => {
+                        cubierta.remove();
+                    }, 1000); // Espera a que termine la animación
+                }, 1000); // Espera a que termine la animación de las puertas
+
+
+          
+    // ESTA ES LA LÍNEA CLAVE:
+    // Al añadir 'pointer-events-none', los clics "atraviesan" la portada
+                cubierta.style.pointerEvents = "none"; 
+
+    // O MEJOR AÚN, ocúltalo del todo después de la animación:
+    setTimeout(() => {
+        cubierta.style.display = "none"; // Esto quita el "cristal invisible" por completo
+        document.body.style.overflow = "auto"; // Habilita el scroll para ver la invitación
+    }, 1200); // 1.2 segundos (un poco después de que terminen de abrirse las puertas)
 }
-</script>
+            
+        </script>
+        <script>
+            
+            const fechaEvento = new Date('2026-05-30T11:00:00-04:00').getTime();
+            const timer = setInterval(function() {
+                const ahora = new Date().getTime();
+                const distancia = fechaEvento - ahora;
 
-<script>
-    const musica = document.getElementById('musicaBoda');
-    const iconPlay = document.getElementById('icon-play');
-    const iconPause = document.getElementById('icon-pause');
+                const d = Math.floor(distancia / (1000 * 60 * 60 * 24)) + 1;
+                const h = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((distancia % (1000 * 60)) / 1000);
 
-    function toggleMusica() {
-        if (musica.paused) {
-            musica.play();
-            iconPlay.classList.add('hidden');
-            iconPause.classList.remove('hidden');
-        } else {
-            musica.pause();
-            iconPlay.classList.remove('hidden');
-            iconPause.classList.add('hidden');
-        }
-    }
-</script>
-    
-<style>
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    .animate-fade-in-up {
-        animation: fadeInUp 1.5s ease-out forwards;
-    }
-</style>
+                document.getElementById("days").innerText = d < 10 ? '0' + d : d;
+                document.getElementById("hours").innerText = h < 10 ? '0' + h : h;
+                document.getElementById("minutes").innerText = m < 10 ? '0' + m : m;
+                document.getElementById("seconds").innerText = s < 10 ? '0' + s : s;
 
+                if (distancia < 0) {
+                    clearInterval(timer);
+                    document.getElementById("countdown").innerHTML = "<p class='text-2xl italic text-[#AC8E84] w-full'>¡Hoy es el gran día!</p>";
+                }
+            }, 1000);
+        </script>
 
-    
-</body>
+    </body>
 </html>
